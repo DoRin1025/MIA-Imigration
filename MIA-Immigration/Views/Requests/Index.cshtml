@@ -1,0 +1,156 @@
+﻿@model IEnumerable<MIA_Immigration.Models.Request>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Full_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Countries.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marital_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryResidence.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Children_and_Ages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profesional1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EducationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profesional3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profesional4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profesional5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profesional6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDo2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDo3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDo4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provinces.ProvinceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moneys.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDo7)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Full_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Countries.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marital_Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryResidence.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Children_and_Ages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesional1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Educations.EducationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesional3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesional4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesional5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesional6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDo1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDo2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDo3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDo4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provinces.ProvinceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moneys.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDo7)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

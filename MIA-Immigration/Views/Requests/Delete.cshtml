@@ -1,0 +1,201 @@
+﻿@model MIA_Immigration.Models.Request
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Countries.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Countries.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Full_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Full_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Citizenship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Citizenship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marital_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marital_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country_of_Residence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country_of_Residence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Children_and_Ages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Children_and_Ages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesional1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesional1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesional2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesional2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesional3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesional3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesional4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesional4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesional5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesional5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profesional6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesional6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDo7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDo7)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
