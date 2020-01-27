@@ -13,7 +13,7 @@ namespace MIA_Immigration.Controllers
     public class RequestsController : Controller
     {
         private ModelDB db = new ModelDB();
-
+        public int? TestId;
         // GET: Requests
         public ActionResult Index()
         {
@@ -33,6 +33,10 @@ namespace MIA_Immigration.Controllers
             {
                 return HttpNotFound();
             }
+
+
+            TempData["data1"] = id;
+            TempData["data2"] = request.Full_Name + id;
             return View(request);
         }
 
@@ -46,6 +50,9 @@ namespace MIA_Immigration.Controllers
 
             ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName");
             ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price");
+
+          
+
             return View();
         }
 
@@ -61,7 +68,7 @@ namespace MIA_Immigration.Controllers
                 db.Requests.Add(category);
                 db.SaveChanges();
 
-                category.File.SaveAs(Server.MapPath("~/PDF/") + category.Full_Name + "_" + category.ID + ".pdf");
+                category.File.SaveAs(Server.MapPath("~/PDF/") + category.ID + ".pdf");
                 return RedirectToAction("Index");
             }
 
@@ -72,6 +79,7 @@ namespace MIA_Immigration.Controllers
 
             ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName", category.ProvinceID);
             ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price", category.MoneyID);
+
 
             return View(category);
         }
@@ -108,6 +116,18 @@ namespace MIA_Immigration.Controllers
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
             return View(request);
         }
+
+
+        public ActionResult DownloadFile(Request category)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/PDF/";
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path + TempData["data1"] + ".pdf");
+            string fileName =  TempData["data2"] + ".pdf";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+
+
 
         // GET: Requests/Delete/5
         public ActionResult Delete(int? id)
