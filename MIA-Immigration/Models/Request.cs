@@ -91,8 +91,11 @@ namespace MIA_Immigration.Models
         [DisplayName("Do you have any existing medical condition or criminal history? If yes, please describe.")]
         public string ToDo7 { get; set; }
 
+
+        [Required]
+        [DisplayName("Upload your CV")]
         [NotMapped]
-   
+        
         public HttpPostedFileBase File { get; set; }
 
         [NotMapped]

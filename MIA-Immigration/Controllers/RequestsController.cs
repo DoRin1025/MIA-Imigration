@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CaptchaMvc.HtmlHelpers;
 using MIA_Immigration.Models;
+using Rotativa;
 
 namespace MIA_Immigration.Controllers
 {
@@ -63,6 +65,11 @@ namespace MIA_Immigration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Request category)
         {
+            if (this.IsCaptchaValid("Validate your captcha"))
+            {
+                ViewBag.ErrMessage = "Validation Messgae";
+            }
+
             if (ModelState.IsValid)
             {
                 db.Requests.Add(category);
@@ -126,6 +133,28 @@ namespace MIA_Immigration.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
+
+
+
+        public ActionResult PrintViewToPdf()
+        {
+            var report = new ActionAsPdf("Index");
+            return report;
+        }
+
+
+
+        public ActionResult PrintPartialViewToPdf(int id)
+        {
+            using (ModelDB db = new ModelDB())
+            {
+                Request request = db.Requests.Include(e => e.Educations).Include(c => c.Countries).Include(cr => cr.CountryResidence).Include(p => p.Provinces).Include(m => m.Moneys).FirstOrDefault(c => c.ID == id);
+
+                var report = new PartialViewAsPdf("~/Views/Shared/DetailsPDF.cshtml", request);
+                return report;
+            }
+
+        }
 
 
 
