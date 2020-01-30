@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_LayoutRequest.cshtml";
 }
 
-@*<section id="one" class="wrapper style2">
-    <div class="inner">*@
+<section id="one" class="wrapper style2">
+    <div class="inner">
         <div class="box table-wrapper">
             
                 <table class="alt">
@@ -15,9 +15,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Full_Name)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Countries.Name)
-                        </th>
+
                         <th>
                             @Html.DisplayNameFor(model => model.Email)
                         </th>
@@ -26,39 +24,47 @@
                             @Html.DisplayNameFor(model => model.Phone)
                         </th>
 
-                        <th></th>
+
+
+                        <th>
+                            Location
+                        </th>
+
+                        <th>Actions</th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
-                        <tr>
+                <tr>
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Full_Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Countries.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Full_Name)
+                    </td>
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Phone)
-                            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
 
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                                @Html.ActionLink("Print Details View To PDF", "PrintPartialViewToPdf", new { id = item.ID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                            </td>
-                        </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Countries.Name)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("View To PDF", "PrintPartialViewToPdf", new { id = item.ID })
+
+                    </td>
+                </tr>
                     }
 
                 </table>
 
             </div>
-    @*</div>
+    </div>
 
-</section>*@
+</section>

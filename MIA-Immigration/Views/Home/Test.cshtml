@@ -1,0 +1,277 @@
+﻿@model MIA_Immigration.Models.Request
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutRequest.cshtml";
+}
+<!DOCTYPE HTML>
+<!--
+    Transitive by TEMPLATED
+
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+
+<html>
+<head>
+    <title>Generic - Transitive by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+</head>
+<body class="subpage">
+
+    <style>
+        .personal {
+            color: black;
+            font-weight: bolder;
+        }
+    </style>
+
+
+    <header class="align-center">
+        <h2>Lorem ipsum dolor</h2>
+        <p>maecenas feugiat ex purus, quis volutpat lacus placerat</p>
+    </header>
+    <hr />
+    <br>
+
+    <div class="row uniform">
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Full_Name)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Full_Name)
+
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Birthday)
+
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Birthday)
+
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Email)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Email)
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Phone)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Phone)
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Countries.Name)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Countries.Name)
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Marital_Status)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Marital_Status)
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.CountryResidence.Name)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.CountryResidence.Name)
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Children_and_Ages)
+            </p>
+
+            <p style="margin-top: -10%;">
+                @Html.DisplayFor(model => model.Children_and_Ages)
+            </p>
+        </div>
+
+        <div class="12u ">
+            <hr />
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Profesional1)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Profesional1)
+            </p>
+        </div>
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Educations.EducationName)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Educations.EducationName)
+            </p>
+        </div>
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Profesional3)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Profesional3)
+            </p>
+        </div>
+
+        <div class="3u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Profesional5)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Profesional5)
+            </p>
+        </div>
+
+        <br />
+
+        <div>
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Profesional4)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Profesional4)
+            </p>
+        </div>
+
+        <div>
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Profesional6)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Profesional6)
+            </p>
+        </div>
+
+        <div class="12u ">
+            <hr />
+        </div>
+
+        <div class="6u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.ToDo1)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.ToDo1)
+            </p>
+        </div>
+
+        <div class="6u">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.Provinces.ProvinceName)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Provinces.ProvinceName)
+            </p>
+        </div>
+        <div class=")">
+            <p class="personal">
+
+                What is the approximate amount of money you have available for your objective of immigrating, studying or travelling to Canada?
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.Moneys.Price)
+            </p>
+        </div>
+
+        <div>
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.ToDo2)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.ToDo2)
+            </p>
+        </div>
+        <div>
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.ToDo3)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.ToDo3)
+            </p>
+        </div>
+
+        <div class="12u 12u$(xsmall)">
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.ToDo7)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.ToDo7)
+            </p>
+        </div>
+
+        <div>
+            <p class="personal">
+                @Html.DisplayNameFor(model => model.ToDo4)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.ToDo4)
+            </p>
+        </div>
+
+
+
+    </div>
+    <hr />
+
+
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/jquery.scrolly.min.js"></script>
+    <script src="~/assets/js/jquery.scrollex.min.js"></script>
+    <script src="~/assets/js/skel.min.js"></script>
+    <script src="~/assets/js/util.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

@@ -103,7 +103,15 @@ namespace MIA_Immigration.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
+            
+
+            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name");
+            ViewBag.CountryRID = new SelectList(db.CountryResidences, "CountryRID", "Name");
+
+            ViewBag.EducationID = new SelectList(db.Educations, "EducationID", "EducationName");
+
+            ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName");
+            ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price");
             return View(request);
         }
 
@@ -121,6 +129,14 @@ namespace MIA_Immigration.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
+
+            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
+            ViewBag.CountryRID = new SelectList(db.CountryResidences, "CountryRID", "Name", request.CountryRID);
+
+            ViewBag.EducationID = new SelectList(db.Educations, "EducationID", "EducationName", request.EducationID);
+
+            ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName", request.ProvinceID);
+            ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price", request.MoneyID);
             return View(request);
         }
 

@@ -469,6 +469,10 @@
     <Content Include="Views\Requests\Index.cshtml" />
     <Content Include="Views\Requests\Create - Copy.cshtml" />
     <Content Include="Views\Shared\_LayoutRequest.cshtml" />
+    <Content Include="Views\Requests\Details2.cshtml" />
+    <Content Include="Views\Requests\Edit - Copy.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Shared\_LayoutPDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
