@@ -1,4 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE HTML>
 <!--
     Transitive by TEMPLATED
 
@@ -8,21 +9,66 @@
 
 <html>
 <head>
-    <title>Generic - Transitive by TEMPLATED</title>
+    <title>MIA Immigration</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+   @* <link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
     <link rel="stylesheet" href="~/assets/css/main.css" />
 </head>
 <body class="subpage">
 
     <!-- Header -->
     <header id="header">
-        <div class="logo"><a href="index.html">Transitive <span>by TEMPLATED</span></a></div>
-        <a href="#menu" class="toggle"><span>Menu</span></a>
-    </header>
+        @*<div class="logo"><a href="Home"><img src="~/images/img/logo.png" /></a> </div>*@
 
-    <br />
+        <div class="logo">
+            <a href='@Url.Action("Index", "Home")'><img src='@Url.Content("~/images/img/logo.png")' /> </a>
+        </div>
+
+            @Html.ActionLink("En", "Change", "Language", new { LanguageAbbrevation = "en" }, null)
+            @Html.ActionLink("Fr", "Change", "Language", new { LanguageAbbrevation = "fr" }, null)
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="#menu" class="toggle"><span>Menu</span></a>
+            }
+
+</header>
+
+    <nav id="menu">
+
+        <style>
+            .tolist {
+                text-decoration: solid;
+            }
+        </style>
+
+        @if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", }))
+            {
+                @Html.AntiForgeryToken()
+
+                <ul class="links">
+                    <li>
+                        <p style="color: #F2F2F2;">    @User.Identity.GetUserName()</p>
+                        <hr style="margin-top: -10%;" />
+                    </li>
+
+                    <li>
+                        <p> @Html.ActionLink("Requests list", "Index", "Requests", null, new { @class = "" })</p>
+
+                    </li>
+                </ul>
+
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="button alt small icon fa fa-sign-out" style="float: right;">Log off</a>
+                @*@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button alt small icon fa fa-user-plus" })*@
+
+            }
+        }
+    </nav>
+
+
+  
 
 
     @RenderBody()

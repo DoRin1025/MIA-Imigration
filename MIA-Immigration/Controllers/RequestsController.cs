@@ -17,6 +17,8 @@ namespace MIA_Immigration.Controllers
         private ModelDB db = new ModelDB();
         public int? TestId;
         // GET: Requests
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var requests = db.Requests.Include(r => r.Countries).Include(a => a.Educations);
@@ -24,6 +26,7 @@ namespace MIA_Immigration.Controllers
         }
 
         // GET: Requests/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -92,53 +95,55 @@ namespace MIA_Immigration.Controllers
         }
 
         // GET: Requests/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Request request = db.Requests.Find(id);
-            if (request == null)
-            {
-                return HttpNotFound();
-            }
+
+
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Request request = db.Requests.Find(id);
+        //    if (request == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
             
 
-            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name");
-            ViewBag.CountryRID = new SelectList(db.CountryResidences, "CountryRID", "Name");
+        //    ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name");
+        //    ViewBag.CountryRID = new SelectList(db.CountryResidences, "CountryRID", "Name");
 
-            ViewBag.EducationID = new SelectList(db.Educations, "EducationID", "EducationName");
+        //    ViewBag.EducationID = new SelectList(db.Educations, "EducationID", "EducationName");
 
-            ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName");
-            ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price");
-            return View(request);
-        }
+        //    ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName");
+        //    ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price");
+        //    return View(request);
+        //}
 
-        // POST: Requests/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Full_Name,Citizenship,Email,Marital_Status,Birthday,Country_of_Residence,Phone,Children_and_Ages,Profesional1,Profesional2,Profesional3,Profesional4,Profesional5,Profesional6,ToDo1,ToDo2,ToDo3,ToDo4,ToDo5,ToDo6,ToDo7,CountryID")] Request request)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(request).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
+        //// POST: Requests/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "ID,Full_Name,Citizenship,Email,Marital_Status,Birthday,Country_of_Residence,Phone,Children_and_Ages,Profesional1,Profesional2,Profesional3,Profesional4,Profesional5,Profesional6,ToDo1,ToDo2,ToDo3,ToDo4,ToDo5,ToDo6,ToDo7,CountryID")] Request request)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(request).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
 
-            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
-            ViewBag.CountryRID = new SelectList(db.CountryResidences, "CountryRID", "Name", request.CountryRID);
+        //    ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", request.CountryID);
+        //    ViewBag.CountryRID = new SelectList(db.CountryResidences, "CountryRID", "Name", request.CountryRID);
 
-            ViewBag.EducationID = new SelectList(db.Educations, "EducationID", "EducationName", request.EducationID);
+        //    ViewBag.EducationID = new SelectList(db.Educations, "EducationID", "EducationName", request.EducationID);
 
-            ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName", request.ProvinceID);
-            ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price", request.MoneyID);
-            return View(request);
-        }
+        //    ViewBag.ProvinceID = new SelectList(db.Provinces, "ProvinceID", "ProvinceName", request.ProvinceID);
+        //    ViewBag.MoneyID = new SelectList(db.Moneys, "MoneyID", "Price", request.MoneyID);
+        //    return View(request);
+        //}
 
 
         public ActionResult DownloadFile(Request category)
@@ -173,32 +178,32 @@ namespace MIA_Immigration.Controllers
         }
 
 
+        //[Authorize(Roles = "Admin")]
+        //// GET: Requests/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Request request = db.Requests.Find(id);
+        //    if (request == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(request);
+        //}
 
-        // GET: Requests/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Request request = db.Requests.Find(id);
-            if (request == null)
-            {
-                return HttpNotFound();
-            }
-            return View(request);
-        }
-
-        // POST: Requests/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Request request = db.Requests.Find(id);
-            db.Requests.Remove(request);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Requests/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Request request = db.Requests.Find(id);
+        //    db.Requests.Remove(request);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

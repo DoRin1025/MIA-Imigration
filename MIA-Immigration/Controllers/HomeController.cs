@@ -16,50 +16,50 @@ namespace MIA_Immigration.Controllers
         }
 
 
-        public ActionResult Test()
-        {
-            return View();
-        }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //public ActionResult Test()
+        //{
+        //    return View();
+        //}
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
-
-
-        // GET: Categories/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Categories/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Request requests)
-        {
-            //if (ModelState.IsValid)
-            //{
-            //    db.Requests.Add(requests);
-            //    db.SaveChanges();
+        //    return View();
+        //}
 
 
-            //    requests.File.SaveAs(Server.MapPath("~/PDF/") + requests.Full_Name + ".pdf");
+        //// GET: Categories/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-            //    return RedirectToAction("Index");
-            //}
+        //// POST: Categories/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(Request requests)
+        //{
+        //    //if (ModelState.IsValid)
+        //    //{
+        //    //    db.Requests.Add(requests);
+        //    //    db.SaveChanges();
 
-            return View(requests);
-        }
+
+        //    //    requests.File.SaveAs(Server.MapPath("~/PDF/") + requests.Full_Name + ".pdf");
+
+        //    //    return RedirectToAction("Index");
+        //    //}
+
+        //    return View(requests);
+        //}
     }
 }

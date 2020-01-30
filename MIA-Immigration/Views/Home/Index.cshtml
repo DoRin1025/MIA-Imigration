@@ -11,8 +11,10 @@
             @MIA_Immigration.Resources.Resource.Banner1<br />
             @MIA_Immigration.Resources.Resource.Banner2
         </p>
-        <!-- <a href="#one" class="button special scrolly">Get Started</a>-->
-        @Html.ActionLink(MIA_Immigration.Resources.Resource.Get_Started, "Index", "Home", new { @class = "button special scrolly" })
+        @*<a href="Requests/Create" class="button special scrolly">@MIA_Immigration.Resources.Resource.Get_Started</a>*@
+        <a href='@Url.Action("Create", "Requests")' class="button special scrolly">@MIA_Immigration.Resources.Resource.Get_Started </a>
+
+        @*@Html.ActionLink(MIA_Immigration.Resources.Resource.Get_Started, "Index", "Requests", new { @class = "button special scrolly" })*@
     </div>
 </section>
 
